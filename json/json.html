@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Json</title>
+
+</head>
+<body>
+	<div id="placeholder"></div>
+</body>
+ <script>
+
+     var data = { "users":[
+            {
+                "firstName":"José",
+                "lastName":"Villalobos",
+                "joined": {
+                    "month":"Janeiro",
+                    "day":12,
+                    "year":2012
+                }
+            },
+            
+            {
+                "firstName":"José",
+                "lastName":"Jones",
+                "joined": {
+                    "month":"Abril",
+                    "day":28,
+                    "year":2010
+                }
+            }
+    ]}
+
+    var output="<ul>";
+    for (var i = 0, len = data.users.length; i< len; i++) {
+        output+="<li>" + data.users[i].firstName + " " + data.users[i].lastName + "--" + data.users[i].joined.month+"</li>";
+    }
+    output+="</ul>";
+
+    document.getElementById("placeholder").innerHTML=output;
+ </script>
+</html>

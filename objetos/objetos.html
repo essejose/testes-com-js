@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Objetos js</title>
+	<script>
+		"use strict";
+	// var Pessoas =[];
+
+	// function Pessoa(nome, idade, sexo){
+	// 	this.nome = nome;
+	// 	this.idade = idade;
+	// 	this.sexo = sexo;
+	// }
+
+	// var Pessoas =[new Pessoa("jose", 22, "M"), new Pessoa("jose", 21, "M") ];
+	
+	// for (x in Pessoas){
+	// 	Pessoas[x];
+	// }
+	
+	// console.log(Pessoas);
+	
+
+
+
+	function User(attrs) {
+		for (var name in attrs) {
+			this[name] = attrs[name];
+		}
+	}
+
+	User.build = function(attrs) {
+		return new User(attrs);
+	};
+
+	var user = User.build({
+		  name: "Jose"
+		, email: "jose@example.org"
+		, telefone:5255454545
+		, endereco:"dasdasdas das dsa "
+		
+		
+	});
+
+	console.log(user);
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

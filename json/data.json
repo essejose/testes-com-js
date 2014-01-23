@@ -1,0 +1,20 @@
+{"users":[
+        {
+            "firstName":"José",
+                "lastName":"Villalobos",
+                "joined": {
+                    "month":"Janeiro",
+                    "day":12,
+                    "year":2012
+            }
+        },
+        {
+            "firstName":"José",
+                "lastName":"Jones",
+                "joined": {
+                    "month":"Abril",
+                    "day":28,
+                    "year":2010
+            }
+        }
+]}

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="br">
+<head>
+	<meta charset="UTF-8">
+	<title>Grafico de pizza</title>
+	<style>
+		body{ padding:5px; margin:0; }
+		h1{ font-size:28px; font-size:arial; }
+		canvas{ background:#e2e2e2; margin-bottom:20px; }
+		#mascara_percentual{ width:400px; height:50px; position:relative; border:1px dotted #000; padding:0;}
+		#mascara_percentual #slider{ width:50px; height:50px; display:block; position:absolute; padding:0; background:#fa0c01; color:#fff; text-align:center; cursor:move; }
+	</style>
+</head>
+<body>
+<canvas id="pizza" width="400" height="400">
+    Seu browser não suporta canvas
+</canvas>
+
+	<div id="mascara_percentual">
+			<span id="slider" class="ui-draggable" >drag</span>
+	</div>
+	<div id="texto_porcentagen"></div>
+</body>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script>
+var Pizza = {
+
+	// Configuração
+	canvas:document.getElementById('pizza'),
+	height:400,
+	width:400,
+	cor:'#293F8A',
+	
+	// Calculando variaveis pra desenhar	
+	_init:function(){
+		Pizza.ctx = Pizza.canvas.getContext("2d");  
+		Pizza.radius = Math.min(Pizza.width, Pizza.height) / 2;
+		Pizza.center_x = Pizza.width/2;
+		Pizza.center_y = Pizza.height/2;	
+	},
+	
+	// Desenhando -  é só colocar Pizza._draw(60) pra desenhar o gráfico com 60% de ocupação	
+	_draw:function(percentual){
+		Pizza.ctx.clearRect(0,0,Pizza.width,Pizza.height); 			
+		Pizza.ctx.beginPath();
+		Pizza.ctx.moveTo(Pizza.center_x, Pizza.center_y);
+		Pizza.ctx.arc( 
+			Pizza.center_x, 
+			Pizza.center_y, 
+			Pizza.radius, 
+			Math.PI * (- 0.5), 
+			Math.PI * (- 0.5 + 2 * percentual/100), 
+			false
+		);
+		Pizza.ctx.closePath();
+		Pizza.ctx.fillStyle = Pizza.cor;
+		Pizza.ctx.fill();				
+	}	
+
+}
+Pizza._init();
+
+$('#slider').draggable({
+	containment:'#mascara_percentual',
+	drag:function() {
+		var left = parseInt($(this).css('left').replace('px',''));
+		var percentual = parseInt(left / 350 * 100); // (350 = 400 do width da mascara - 50 do width do slider)
+		Pizza._draw(percentual);
+		$('#texto_porcentagen').text(percentual)
+		
+	}
+});
+
+$('#slider').css('left','10%');
+Pizza._draw(10);
+
+
+
+</script>
+</html>

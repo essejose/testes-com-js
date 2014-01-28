@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Validando com modernizr</title>
+	<script src="modernizr.js"></script>
+</head>
+<body>
+	<input type="button" value="Validar Audio" onclick="validaaudio()">
+	<input type="button" value="Validar box-shadow" onclick="validaboxshadow()">
+	<input type="button" value="Validar Video" onclick="validavideo()">
+</body>
+<script>
+	function validaaudio(){
+		if (Modernizr.audio) {
+			alert("Seu navegador tem suporte para audio")
+		}else{
+			alert("Seu navegador nao tem suporte para audio , por favor atualize")
+		};
+
+		return false
+	}
+
+	function validavideo(){
+		if (Modernizr.audio) {
+			alert("Seu navegador tem suporte para video")
+		}else{
+			alert("Seu navegador nao tem suporte para video , por favor atualize")
+		};
+		return false
+	}
+
+	function validaboxshadow(){
+		if (Modernizr.boxshadow) {
+			alert("Seu navegador tem suporte para box-shadow")
+		}else{
+			alert("Seu navegador nao tem suporte para box-shadow , por favor atualize")
+		};
+		return false
+	}
+</script>
+</html>

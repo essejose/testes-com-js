@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Grafico de pizza</title>
+	<style>
+		body{ padding:5px; margin:0; }
+		h1{ font-size:28px; font-size:arial; }
+		canvas{ background:#e2e2e2; margin-bottom:20px;
+			transition: left 1s ease-in-out 0s;
+
+			
+		 }
+		#mascara_percentual{ width:400px; height:50px; position:relative; border:1px dotted #000; padding:0;}
+		#mascara_percentual #slider{ width:50px; height:50px; display:block; position:absolute; padding:0; background:#fa0c01; color:#fff; text-align:center; cursor:move; }
+	</style>
+</head>
+<body>
+
+	<form id="formulario">
+		<fieldset class="form-campo">
+			<legend class="form-legend">Cálculo do IMC</legend>
+
+			<label for="kilos" class="form-label">Kilos:</label>
+			<input type="text" name="kilos" class="form-input" onkeypress='return _somenteNumero(event)'>
+
+			<label for="metros" class="form-label">Metros:</label>
+			<input type="text" name="metros" class="form-input" onkeypress='return _somenteNumero(event)'>
+
+			<label for="centimetros" class="form-label">Centimetros:</label>
+			<input type="text" name="centimetros" class="form-input" onkeypress='return _somenteNumero(event)'>
+
+			<label for="imc" class="form-label">IMC:</label>
+			<input type="text" name="imc" onkeypress='return _somenteNumero(event)'>
+			
+			
+			<input type="button"  value="calcularIMC" id="calc">
+		</fieldset>
+	</form>
+
+
+<canvas id="pizza" width="400" height="400">
+    Seu browser não suporta canvas
+</canvas>
+
+	<div id="mascara_percentual">
+			<span id="slider" class="ui-draggable" >drag</span>
+	</div>
+	<div id="texto_porcentagen"></div>
+
+</body>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="js/class-calculadora.js"></script>
+<script src="js/grafico-pizza.js"></script>
+<script>
+
+
+
+</script>
+</html>

@@ -6,7 +6,7 @@ var Pizza = {
 	height:400,
 	width:400,
 	startcolor:'red',
-	finalcolor:'white',
+	finalcolor:'blue',
 	
 	// Calculando variaveis pra desenhar	
 	_init:function(){
@@ -50,17 +50,5 @@ var Pizza = {
 Pizza._init();
 
 
-$('#slider').draggable({
-	containment:'#mascara_percentual',
-	drag:function() {
-		var left = parseInt($(this).css('left').replace('px',''));
-		var percentual = parseInt(left / 350 * 40); // (350 = 400 do width da mascara - 50 do width do slider)
-		Pizza._draw(percentual);
-		$('#texto_porcentagen').text(percentual)
-		
-	}
-});
-
-$('#slider').css('left','10%');
 
 

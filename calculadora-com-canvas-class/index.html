@@ -1,62 +1,77 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-	<meta charset="UTF-8">
-	<title>Grafico de pizza</title>
-	<style>
-		body{ padding:5px; margin:0; }
-		h1{ font-size:28px; font-size:arial; }
-		canvas{ background:#e2e2e2; margin-bottom:20px;
-			transition: left 1s ease-in-out 0s;
-
-			
-		 }
-		#mascara_percentual{ width:400px; height:50px; position:relative; border:1px dotted #000; padding:0;}
-		#mascara_percentual #slider{ width:50px; height:50px; display:block; position:absolute; padding:0; background:#fa0c01; color:#fff; text-align:center; cursor:move; }
-	</style>
-</head>
-<body>
-
-	<form id="formulario">
-		<fieldset class="form-campo">
-			<legend class="form-legend">Cálculo do IMC</legend>
-
-			<label for="kilos" class="form-label">Kilos:</label>
-			<input type="text" name="kilos" class="form-input" onkeypress='return _somenteNumero(event)'>
-
-			<label for="metros" class="form-label">Metros:</label>
-			<input type="text" name="metros" class="form-input" onkeypress='return _somenteNumero(event)'>
-
-			<label for="centimetros" class="form-label">Centimetros:</label>
-			<input type="text" name="centimetros" class="form-input" onkeypress='return _somenteNumero(event)'>
-
-			<label for="imc" class="form-label">IMC:</label>
-			<input type="text" name="imc" onkeypress='return _somenteNumero(event)'>
-			
-			
-			<input type="button"  value="calcularIMC" id="calc">
-		</fieldset>
-	</form>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="pt-br"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Calculadora com grafico em canvas</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<canvas id="pizza" width="400" height="400">
-    Seu browser não suporta canvas
-</canvas>
+        
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/grafico-pizza.css">
+         <link rel="stylesheet" href="css/calculadora.css">
 
-	<div id="mascara_percentual">
-			<span id="slider" class="ui-draggable" >drag</span>
-	</div>
-	<div id="texto_porcentagen"></div>
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <section class="calculadora">
+           <form id="formulario" role="form">
+              <fieldset class="form-campo ">
+                 <legend class="form-legend">Cálculo do IMC</legend>
+                <div class="form-group col-md-4">
+                   <label for="kilos" class="control-label form-label">Kilos:</label>
+                   <input type="text" name="kilos" class="form-control form-input" onkeypress='return validar._somenteNumero(event)'>
+               </div>
+               <div class="form-group col-md-4">
+                   <label for="metros" class="control-label form-label">Metros:</label>
+                   <input type="text" name="metros" class="form-control form-input" onkeypress='return validar._somenteNumero(event)'>
+               </div>
+               <div class="form-group col-md-4">
+                   <label for="centimetros" class="control-label form-label">Centimetros:</label>
+                   <input type="text" name="centimetros" class="form-control form-input" onkeypress='return validar._somenteNumero(event)'>
+               </div>
+               <div class="form-group col-md-12">                
+                   <input type="button"  value="Calcular IMC" id="calc" class="btn btn-default">
+               </div>
+               <div id="imcCampo" class="form-group col-md-12 esconde">
+                   <label for="imc" class="control-label form-label">IMC:</label>
+                   <input type="text" name="imc"  id="imc"  class="form-control input-imc" onkeypress='return validar._somenteNumero(event)' disabled>
+               </div>
+               
+           </fieldset>
+       </form>
 
-</body>
+        <canvas id="pizza" width="400" height="400" class="esconde ">
+            Seu browser não suporta canvas
+        </canvas>
 
-<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-<script src="js/class-calculadora.js"></script>
-<script src="js/grafico-pizza.js"></script>
-<script>
+        
+
+   </section>
 
 
+	
 
-</script>
+       	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+       	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/calculadora.js"></script>
+        <script src="js/grafico-pizza.js"></script>
+        <script src="js/main.js"></script>
+
+	
+
+       
+    </body>
 </html>
+</body>
+ 

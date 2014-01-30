@@ -1,0 +1,37 @@
+
+
+.esconde
+{
+  display: none;
+}
+.calculadora {
+  margin: auto;
+  width: 400px;
+}
+
+.calculadora .btn-default
+{
+  display: block;
+  float: none;
+  margin:  auto;
+  margin: auto;
+
+}
+
+
+.form-control {
+  min-height: 35px;
+  height: auto;
+}
+.input-imc
+{
+  font-size: 2em;
+}
+.form-group  label
+{
+  display: block;
+}
+#formulario input, .form-group  label
+{
+  text-align: center;
+}

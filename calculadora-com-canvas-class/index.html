@@ -17,27 +17,35 @@
         <link rel="stylesheet" href="css/bootstrap-theme.min.min.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/grafico-pizza.css">
-         <link rel="stylesheet" href="css/calculadora.css">
+        <link rel="stylesheet" href="css/calculadora.css">
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
         <section class="calculadora">
+
            <form id="formulario" role="form">
               <fieldset class="form-campo ">
-                 <legend class="form-legend">Cálculo do IMC</legend>
-                <div class="form-group col-md-4">
-                   <label for="kilos" class="control-label form-label">Kilos:</label>
-                   <input type="text" name="kilos" class="form-control form-input" onkeypress='return validar._somenteNumero(event)'>
+                 <legend class="form-legend  hidden">Cálculo do IMC</legend>
+                 <div class=" row col-md-12">
+                    <h2>Olá! :)</h2>
+                    <p> Digite seu peso(kg), altura(metros) e centimetros </p>
+                    <hr>
+                  </div>
+                <div class="form-group col-md-6">
+                   <label for="kilos" class="control-label form-label">Peso (em kg):</label>
+                   <input type="text" name="kilos" class="form-control form-input" onkeypress='return validar._somenteNumero(event)' id="kilosValue">
+                   <input type="range" name="range" min="0" max="300" step="1" value="0" id="kilosRanger"> 
                </div>
-               <div class="form-group col-md-4">
-                   <label for="metros" class="control-label form-label">Metros:</label>
-                   <input type="text" name="metros" class="form-control form-input" onkeypress='return validar._somenteNumero(event)'>
+               <div class="form-group col-md-6">
+                   <label for="metros" class="control-label form-label">Alturas (em metros):</label>
+                   <input type="text" name="metros" class="form-control form-input" onkeypress='return validar._somenteNumero(event)' id="alturaValue">
+                   <input type="range" name="range" min="0" max="240" step="1" value="0" id="alturaRanger"> 
                </div>
-               <div class="form-group col-md-4">
+               <!-- <div class="form-group col-md-4">
                    <label for="centimetros" class="control-label form-label">Centimetros:</label>
                    <input type="text" name="centimetros" class="form-control form-input" onkeypress='return validar._somenteNumero(event)'>
-               </div>
+               </div> -->
                <div class="form-group col-md-12">                
                    <input type="button"  value="Calcular IMC" id="calc" class="btn btn-default">
                </div>
@@ -45,11 +53,55 @@
                    <label for="imc" class="control-label form-label">IMC:</label>
                    <input type="text" name="imc"  id="imc"  class="form-control input-imc" onkeypress='return validar._somenteNumero(event)' disabled>
                </div>
+                 
+               
                
            </fieldset>
+
+    <table id="tabela-resultado-imc" class="table "> 
+  <thead> 
+    <tr> 
+      <td class="td-first-col">Resultado</td> 
+      <td>Situação</td> 
+    </tr> 
+  </thead> 
+  <tbody> 
+    <tr > 
+      <td>Abaixo de 17</td> 
+      <td>Muito abaixo do <em>peso</em></td> 
+    </tr> 
+    <tr> 
+      <td >Entre 17 e 18,49</td> 
+      <td>Abaixo do <em>peso</em></td> 
+    </tr> 
+    <tr> 
+      <td >Entre 18,5 e 24,99</td> 
+      <td><em>Peso</em> normal</td> 
+    </tr> 
+    <tr> 
+      <td >Entre 25 e 29,99</td> 
+      <td>Acima do <em>peso</em></td> 
+    </tr> 
+    <tr> 
+      <td >Entre 30 e 34,99</td> 
+      <td><em>Obesidade</em> I</td> 
+    </tr> 
+    <tr> 
+      <td >Entre 35 e 39,99</td> 
+      <td><em>Obesidade</em> II (severa)</td> 
+    </tr> 
+    <tr> 
+      <td>Acima de 40</td> 
+      <td><em>Obesidade</em> III (mórbida)</td> 
+    </tr> 
+  </tbody> 
+</table>
        </form>
 
         <canvas id="pizza" width="400" height="400" class="esconde ">
+            Seu browser não suporta canvas
+        </canvas>
+        <canvas id="escrevendo" width="400" height="400">
             Seu browser não suporta canvas
         </canvas>
 
@@ -75,3 +127,4 @@
 </html>
 </body>
  
+

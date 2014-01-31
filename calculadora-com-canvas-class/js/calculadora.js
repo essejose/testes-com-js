@@ -9,9 +9,9 @@ var calculadora = {
 	 	// o "+ mais performatico nesse caso" )
 	 	calculadora.kilos =  +formulario.kilos.value,
 		calculadora.metros = +formulario.metros.value,
-		calculadora.centimetros = +formulario.centimetros.value,
+		//calculadora.centimetros = +formulario.centimetros.value,
 		//inicia calculo para IMC
-		calculadora.altura = (calculadora.metros * 100 + calculadora.centimetros)/100;
+		calculadora.altura = calculadora.metros  /100;
 		calculadora.imc = calculadora.kilos / (calculadora.altura * calculadora.altura);
 		//verifico se esse valor nao e NaN
 		if(!isNaN(calculadora.imc)){ 
@@ -30,7 +30,7 @@ var validar ={
 		//uso um for para percorrer
 		for (var i = 0; i < inputs.length; i++) {
 			//caso o campo esteja vazio
-			if (inputs[i].value=="") {
+			if (inputs[i].value=="" || inputs[i].value<=0 ) {
 					//faço um focus no campo
 					 inputs[i].focus();
 					 //disparo um alerta com o nome do campo
@@ -66,3 +66,4 @@ function getElementByClass (className, parent) {
 	  }
 	  return result;
 }
+

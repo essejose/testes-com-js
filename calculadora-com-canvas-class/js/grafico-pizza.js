@@ -19,6 +19,7 @@ var Pizza = {
 		Pizza.grd=Pizza.ctx.createLinearGradient(20,-35,200,0);
 		Pizza.grd.addColorStop(0,Pizza.startcolor);
 		Pizza.grd.addColorStop(1,Pizza.finalcolor);
+		
 
 		
 	},
